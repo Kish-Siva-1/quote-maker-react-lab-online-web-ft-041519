@@ -7,7 +7,8 @@ class QuoteForm extends Component {
 
   state = {
       content:'',
-      author:''
+      author:'',
+      votes: 0
   }
 
   handleOnChange = event => {
@@ -18,16 +19,13 @@ class QuoteForm extends Component {
   }
 
   handleOnSubmit = event => {
-    // Handle Form Submit event default
-    // Create quote object from state
-    // Pass quote object to action creator
-    // Update component state to return to default state
     event.preventDefault();
     const quote = { ...this.state, id: uuid() }
     this.props.addQuote(quote)
     this.setState({
       content:'',
-      author:''
+      author:'',
+      votes: 0
     })
   }
 
